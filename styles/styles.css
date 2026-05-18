@@ -434,3 +434,30 @@ main .section.cards-container > div > h2 a:any-link {
 main .section.cards-container > div > h2 a:hover {
   color: var(--color-wimbledon-green);
 }
+
+/* Auto-apply dark background to the "News and Information / Latest" section */
+/* This targets the section that has only a default-content-wrapper with no blocks */
+main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) {
+  background-color: var(--color-wimbledon-green);
+  color: white;
+  padding: 48px 0;
+}
+
+main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) h2,
+main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) p {
+  color: white;
+}
+
+main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) p {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.25em;
+}
+
+main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) h2 {
+  font-size: var(--heading-font-size-xxl);
+  margin-top: 0;
+}
