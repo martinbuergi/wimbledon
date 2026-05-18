@@ -423,29 +423,32 @@ main .section.cards-container > div > h2 a:hover {
   color: var(--color-wimbledon-green);
 }
 
-/* Auto-apply dark background to the "News and Information / Latest" section */
-/* This targets the section that has only a default-content-wrapper with no blocks */
-main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) {
-  background-color: var(--color-wimbledon-green);
-  color: white;
-  padding: 48px 0;
+/* "Latest" section - white background with dark/purple text (matching original wimbledon.com) */
+main > .section:has(> .default-content-wrapper > h2#latest) {
+  background-color: white !important;
+  color: var(--text-color) !important;
+  padding: 64px 0 40px;
 }
 
-main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) h2,
-main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) p {
-  color: white;
+main > .section:has(> .default-content-wrapper > h2#latest) h2,
+main > .section:has(> .default-content-wrapper > h2#latest) p {
+  color: var(--text-color) !important;
 }
 
-main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) p {
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
+main > .section:has(> .default-content-wrapper > h2#latest) p {
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.7;
-  margin-bottom: 0.25em;
+  color: rgb(84, 0, 130) !important;
+  opacity: 1;
+  margin-bottom: 0.3em;
 }
 
-main > .section:not([class*="container"]):has(> .default-content-wrapper > h2#latest) h2 {
-  font-size: var(--heading-font-size-xxl);
+main > .section:has(> .default-content-wrapper > h2#latest) h2 {
+  font-size: 40px;
+  font-weight: 700;
   margin-top: 0;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
 }
