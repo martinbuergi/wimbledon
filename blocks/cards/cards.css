@@ -1,27 +1,212 @@
-.cards > ul {
+/* Cards block — Wimbledon brand styles */
+
+/* === Base: image cards (news carousel / ticket cards) === */
+main .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
+main .cards > ul > li {
   background-color: var(--background-color);
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
-}
-
-.cards .cards-card-image {
+main .cards .cards-card-image {
   line-height: 0;
+  overflow: hidden;
 }
 
-.cards > ul > li img {
+main .cards .cards-card-image picture {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+}
+
+main .cards > ul > li img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+main .cards > ul > li:hover img {
+  transform: scale(1.03);
+}
+
+main .cards .cards-card-body {
+  padding: 12px 0;
+}
+
+main .cards .cards-card-body p {
+  margin: 0 0 4px;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+/* Category/eyebrow label — first p in card body (no link) */
+main .cards .cards-card-body p:first-child:not(:has(a)) {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-wimbledon-green);
+  margin-bottom: 6px;
+}
+
+/* Card title link */
+main .cards .cards-card-body p a:any-link {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: var(--body-font-size-s);
+  line-height: 1.3;
+  text-decoration: none;
+  display: block;
+}
+
+main .cards .cards-card-body p a:hover {
+  color: var(--color-wimbledon-green);
+  text-decoration: none;
+}
+
+/* Date/meta — last p in card body */
+main .cards .cards-card-body p:last-child:not(:has(a)) {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* === Text-only cards (Latest News / Latest Video sections) === */
+/* Detected by no cards-card-image present */
+main .cards.text-cards > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+main .cards.text-cards > ul > li {
+  border-top: 1px solid #e0e0e0;
+  padding: 16px 0;
+  background: none;
+}
+
+main .cards.text-cards > ul > li:last-child {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+main .cards.text-cards .cards-card-body {
+  padding: 0;
+}
+
+main .cards.text-cards .cards-card-body p:first-child:not(:has(a)) {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-wimbledon-purple);
+  margin-bottom: 6px;
+}
+
+main .cards.text-cards .cards-card-body p a:any-link {
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.35;
+}
+
+main .cards.text-cards .cards-card-body p a:hover {
+  color: var(--color-wimbledon-green);
+}
+
+/* === Ticket option cards === */
+main .cards.ticket-cards > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+main .cards.ticket-cards > ul > li {
+  position: relative;
+  overflow: hidden;
+}
+
+main .cards.ticket-cards > ul > li img {
+  aspect-ratio: 4 / 3;
+}
+
+main .cards.ticket-cards .cards-card-body {
+  padding: 10px 0;
+}
+
+main .cards.ticket-cards .cards-card-body p a:any-link {
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+  color: var(--color-wimbledon-green);
+  text-decoration: none;
+}
+
+main .cards.ticket-cards .cards-card-body p a:hover {
+  color: var(--color-wimbledon-purple);
+}
+
+main .cards.ticket-cards .cards-card-body p:last-child {
+  font-size: var(--body-font-size-xs);
+  color: #666;
+}
+
+/* === Tablet and up === */
+@media (width >= 600px) {
+  /* Image cards: horizontal scroll on smaller screens */
+  main .cards:not(.text-cards):not(.ticket-cards) > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  main .cards.text-cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 24px;
+  }
+
+  main .cards.text-cards > ul > li {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  main .cards.ticket-cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+/* === Desktop === */
+@media (width >= 900px) {
+  /* Image news cards: 4-up horizontal row */
+  main .cards:not(.text-cards):not(.ticket-cards) > ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  main .cards.text-cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 32px;
+  }
+
+  main .cards.text-cards > ul > li {
+    padding: 20px 0;
+  }
+
+  main .cards.ticket-cards > ul {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  main .cards.ticket-cards > ul > li img {
+    aspect-ratio: 3 / 2;
+  }
 }
