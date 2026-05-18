@@ -10,9 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
-/* Wimbledon brand fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
-
 :root {
   /* Wimbledon brand colors */
   --color-wimbledon-green: #00563f;
@@ -26,13 +23,13 @@
   --background-color: white;
   --light-color: #f5f5f0;
   --dark-color: #00563f;
-  --text-color: #1a1a1a;
+  --text-color: rgb(18, 22, 25);
   --link-color: #00563f;
   --link-hover-color: #5b2d8e;
 
-  /* fonts */
-  --body-font-family: 'Open Sans', open-sans-fallback, sans-serif;
-  --heading-font-family: 'Playfair Display', playfair-fallback, georgia, serif;
+  /* fonts — Gotham (commercial) with system-ui fallback; Caslon used at block level for eyebrows */
+  --body-font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  --heading-font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 18px;
@@ -51,18 +48,7 @@
   --nav-height: 64px;
 }
 
-/* fallback fonts */
-@font-face {
-  font-family: playfair-fallback;
-  size-adjust: 98%;
-  src: local('Georgia');
-}
-
-@font-face {
-  font-family: open-sans-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
+/* No custom fallback @font-face needed — Gotham falls back to system-ui/Arial natively */
 
 @media (width >= 900px) {
   :root {

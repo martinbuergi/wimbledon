@@ -1,138 +1,138 @@
-/* Columns block — Wimbledon brand 50/50 split layout */
+/* Columns block — 50/50 editorial split */
+
+.columns-container,
+.columns-wrapper {
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 0 var(--section-padding, 64px);
+}
 
 main .columns > div {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 24px;
+  min-height: 480px;
 }
 
-main .columns img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* Each column — equal width */
+main .columns > div > div {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
-/* Image column fills its container */
+/* Image column */
 main .columns > div > .columns-img-col {
+  position: relative;
   overflow: hidden;
-  min-height: 260px;
-  order: -1;
+  border-radius: 8px;
 }
 
 main .columns > div > .columns-img-col picture {
   display: block;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
 }
 
 main .columns > div > .columns-img-col img {
   width: 100%;
   height: 100%;
-  min-height: 260px;
   object-fit: cover;
+  display: block;
+  border-radius: 8px;
 }
 
-/* Text column — Wimbledon green background */
+/* Text column */
 main .columns > div > div:not(.columns-img-col) {
-  background-color: var(--color-wimbledon-green);
-  color: white;
-  padding: 32px 24px;
+  background: transparent;
+  color: rgb(18, 22, 25);
+  padding: 48px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  order: 0;
 }
 
-/* Eyebrow label — first <p> with no link */
-main .columns > div > div:not(.columns-img-col) p:first-child:not(:has(a)) {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgb(255 255 255 / 65%);
-  margin-bottom: 0.5em;
-  margin-top: 0;
+/* Eyebrow — Caslon italic serif, purple */
+main .columns > div > div:not(.columns-img-col) > p:first-child:not(:has(a)) {
+  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(84, 0, 130);
+  letter-spacing: 0.28px;
+  text-transform: none;
+  margin: 0 0 12px;
 }
 
+/* Heading */
 main .columns > div > div:not(.columns-img-col) h2 {
-  color: white;
-  font-family: var(--heading-font-family);
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-size: 32px;
   font-weight: 700;
-  font-size: clamp(24px, 4vw, 40px);
-  line-height: 1.15;
-  margin-top: 0.2em;
-  margin-bottom: 0.5em;
+  color: rgb(18, 22, 25);
+  letter-spacing: -0.96px;
+  line-height: 1.1;
+  margin: 0 0 16px;
 }
 
+/* Body text */
 main .columns > div > div:not(.columns-img-col) p {
-  color: rgb(255 255 255 / 80%);
-  font-size: var(--body-font-size-s);
-  line-height: 1.6;
-  margin: 0 0 0.8em;
+  font-size: 16px;
+  color: rgb(23, 23, 23);
+  line-height: 1.5;
+  margin: 0 0 16px;
 }
 
-/* CTA link */
-main .columns > div > div:not(.columns-img-col) p:last-child a:any-link,
-main .columns > div > div:not(.columns-img-col) p a.button:any-link {
-  display: inline-block;
-  margin-top: 0.5em;
-  padding: 0.6em 1.8em;
-  background-color: white;
-  color: var(--color-wimbledon-green);
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid white;
-  transition: background-color 0.2s, color 0.2s;
+/* CTA link — blue underlined */
+main .columns > div > div:not(.columns-img-col) a,
+main .columns > div > div:not(.columns-img-col) p a {
+  color: rgb(0, 98, 254) !important;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline;
 }
 
-main .columns > div > div:not(.columns-img-col) p:last-child a:hover,
-main .columns > div > div:not(.columns-img-col) p a.button:hover {
-  background-color: transparent;
-  color: white;
-  text-decoration: none;
+main .columns > div > div:not(.columns-img-col) a:hover {
+  color: rgb(0, 70, 200) !important;
+  text-decoration: underline;
 }
 
-/* Desktop: true 50/50 side-by-side */
-@media (width >= 768px) {
-  main .columns > div {
-    flex-direction: row;
-    align-items: stretch;
-    min-height: 420px;
+/* Mobile: stack vertically */
+@media (max-width: 767px) {
+  .columns-container,
+  .columns-wrapper {
+    padding: 0 var(--section-padding, 24px);
   }
 
-  main .columns > div > div {
-    flex: 1;
-    order: unset;
+  main .columns > div {
+    flex-direction: column;
+    min-height: unset;
   }
 
   main .columns > div > .columns-img-col {
-    min-height: 420px;
-    order: unset;
+    border-radius: 0;
+    min-height: 280px;
+    position: relative;
+  }
+
+  main .columns > div > .columns-img-col picture {
+    position: relative;
+    height: 280px;
+    display: block;
   }
 
   main .columns > div > .columns-img-col img {
-    min-height: 420px;
+    border-radius: 0;
+    height: 280px;
   }
 
   main .columns > div > div:not(.columns-img-col) {
-    padding: 48px 40px;
-    order: unset;
+    padding: 24px 0;
   }
-}
-
-@media (width >= 1100px) {
-  main .columns > div > div:not(.columns-img-col) {
-    padding: 56px 56px;
-  }
-}
-
-/* Remove default section wrapper max-width for full-bleed columns */
-main > .section.columns-container > div,
-main > .section.columns-container > .columns-wrapper {
-  max-width: unset;
-  padding: 0;
 }

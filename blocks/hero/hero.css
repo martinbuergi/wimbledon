@@ -24,6 +24,7 @@ main .hero > div > div.hero-image {
   min-width: 0;
   overflow: hidden;
   position: relative;
+  border-radius: 0;
 }
 
 main .hero > div > div.hero-image picture {
@@ -38,7 +39,7 @@ main .hero > div > div.hero-image img {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 /* Text/content column — 50% */
@@ -133,14 +134,21 @@ main .hero .hero-content a.button:hover {
   }
 }
 
-/* Larger desktop — scale up heading */
+/* Desktop — scale up heading */
 @media (min-width: 1024px) {
   main .hero .hero-content h2 {
-    font-size: 28px;
-    letter-spacing: -0.84px;
+    font-size: 32px;
+    letter-spacing: -0.96px;
   }
 
   main .hero > div {
     gap: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  main .hero .hero-content h2 {
+    font-size: 32px;
+    letter-spacing: -0.96px;
   }
 }
