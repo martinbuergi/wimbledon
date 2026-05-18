@@ -55,16 +55,16 @@ main .hero > div > div.hero-content {
   gap: 0;
 }
 
-/* Eyebrow/category label — Caslon italic serif, purple */
+/* Eyebrow/category label — Gotham normal uppercase, purple */
 main .hero .hero-eyebrow {
   display: block;
-  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
-  font-style: italic;
-  font-size: 14px;
-  font-weight: 400;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 500;
   color: #540082;
-  letter-spacing: 0.28px;
-  text-transform: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   margin: 0 0 8px;
 }
 

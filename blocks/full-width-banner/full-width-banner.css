@@ -59,14 +59,15 @@ main .full-width-banner .fwb-card {
   box-sizing: border-box;
 }
 
-/* Eyebrow — Caslon italic purple */
+/* Eyebrow — Caslon normal uppercase purple */
 main .full-width-banner .fwb-eyebrow {
   font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
-  font-style: italic;
-  font-size: 14px;
+  font-style: normal;
+  font-size: 11px;
   font-weight: 400;
   color: rgb(84, 0, 130);
-  letter-spacing: 0.28px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   margin: 0 0 8px;
 }
 

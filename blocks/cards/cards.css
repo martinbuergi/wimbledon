@@ -69,15 +69,15 @@ main .cards .cards-card-body p {
   color: var(--text-color);
 }
 
-/* Category/eyebrow label — Caslon italic serif, purple */
+/* Category/eyebrow label — Gotham normal uppercase, purple */
 main .cards .cards-card-body p:first-child:not(:has(a)) {
-  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
-  font-style: italic;
-  font-size: 14px;
-  font-weight: 400;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 500;
   color: rgb(84, 0, 130);
-  letter-spacing: 0.28px;
-  text-transform: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
