@@ -28,6 +28,7 @@ main .cards .cards-card-image picture {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 main .cards .cards-card-image picture img {
@@ -168,6 +169,8 @@ main .cards.ticket-cards > ul > li {
 
 main .cards.ticket-cards .cards-card-image picture {
   aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 main .cards.ticket-cards .cards-card-image picture img {
