@@ -1,0 +1,132 @@
+/* Full-width banner — full-bleed background image with centered white card */
+
+/* Section: remove max-width constraint for full bleed */
+.full-width-banner-container,
+.full-width-banner-wrapper {
+  max-width: unset !important;
+  padding: 0 !important;
+}
+
+/* Block: full-width, min 443px tall */
+main .full-width-banner {
+  position: relative;
+  width: 100%;
+  min-height: 443px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Row: use display:contents so the two cells are direct flex children of the block */
+main .full-width-banner > div {
+  display: contents;
+}
+
+/* === Background image cell === */
+main .full-width-banner .fwb-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+main .full-width-banner .fwb-bg picture {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+main .full-width-banner .fwb-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === White content card — centered over the image === */
+main .full-width-banner .fwb-card {
+  position: relative;
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 48px 40px 40px;
+  max-width: 816px;
+  width: calc(100% - 48px);
+  margin: 80px 24px;
+  box-sizing: border-box;
+}
+
+/* Eyebrow — Caslon italic purple */
+main .full-width-banner .fwb-eyebrow {
+  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(84, 0, 130);
+  letter-spacing: 0.28px;
+  margin: 0 0 8px;
+}
+
+/* Heading — Gotham bold uppercase */
+main .full-width-banner .fwb-card h2 {
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(18, 22, 25);
+  text-transform: uppercase;
+  letter-spacing: -0.96px;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+/* Description */
+main .full-width-banner .fwb-card p:not(.fwb-eyebrow):not(.fwb-cta) {
+  font-size: 16px;
+  color: rgb(18, 22, 25);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+/* CTA — blue link with arrow */
+main .full-width-banner .fwb-cta {
+  margin: 0;
+}
+
+main .full-width-banner .fwb-cta a {
+  color: rgb(0, 98, 254);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+main .full-width-banner .fwb-cta a::after {
+  content: '→';
+  font-size: 14px;
+}
+
+main .full-width-banner .fwb-cta a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  main .full-width-banner {
+    min-height: 300px;
+  }
+
+  main .full-width-banner .fwb-card {
+    padding: 32px 24px;
+    margin: 40px 16px;
+    width: calc(100% - 32px);
+  }
+
+  main .full-width-banner .fwb-card h2 {
+    font-size: 24px;
+  }
+}
