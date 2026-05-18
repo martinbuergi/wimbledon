@@ -254,3 +254,15 @@ header nav a:any-link {
     padding: 0 48px;
   }
 }
+
+/* Always show hamburger  original shows it at all breakpoints */
+header nav .nav-hamburger {
+  display: flex !important;
+  visibility: visible !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  order: 0;
+}
