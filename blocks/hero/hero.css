@@ -1,183 +1,146 @@
 /* Hero block — Wimbledon editorial style */
 
-/* Section wrapper: white background, constrained width with padding */
+/* Section wrapper — constrained width, NOT full bleed */
 .hero-container,
 .hero-wrapper {
-  max-width: unset !important;
-  padding: 0 !important;
-}
-
-main > .section.hero-container {
-  background-color: var(--background-color);
-}
-
-main > .section.hero-container > div,
-main > .section.hero-container > .hero-wrapper {
-  max-width: 1200px;
+  max-width: var(--section-max-width, 1200px);
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 0 var(--section-padding, 24px) !important;
 }
 
-@media (width >= 900px) {
-  main > .section.hero-container > div,
-  main > .section.hero-container > .hero-wrapper {
-    padding: 40px 80px;
-  }
-}
-
-/* === Hero block base === */
-main .hero {
-  position: relative;
-  overflow: hidden;
-}
-
+/* Main hero row */
 main .hero > div {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 24px;
+  padding: 32px 0 40px;
+  min-height: unset;
 }
 
-/* Image column */
-main .hero > div > div:has(picture),
+/* Image column — 50% */
 main .hero > div > div.hero-image {
-  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
   overflow: hidden;
-  min-height: 240px;
-  border-radius: 8px;
+  position: relative;
 }
 
-main .hero > div > div:has(picture) picture,
 main .hero > div > div.hero-image picture {
   display: block;
-  height: 100%;
   width: 100%;
-  position: absolute;
-  inset: 0;
+  aspect-ratio: 16 / 9;
+  position: relative;
 }
 
-main .hero > div > div:has(picture) img,
 main .hero > div > div.hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
-/* Text/content column — white background, dark editorial text */
+/* Text/content column — 50% */
 main .hero > div > div.hero-content {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  padding: 16px 0;
+  flex: 1 1 0;
+  min-width: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0;
 }
 
-/* Eyebrow/category label — purple */
+/* Eyebrow/category label — Caslon italic serif, purple */
 main .hero .hero-eyebrow {
   display: block;
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-wimbledon-purple);
-  margin-bottom: 0.5em;
-  margin-top: 0;
+  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 400;
+  color: #540082;
+  letter-spacing: 0.28px;
+  text-transform: none;
+  margin: 0 0 8px;
 }
 
-/* Headlines — dark, serif */
-main .hero .hero-content h1,
-main .hero .hero-content h2 {
-  color: var(--color-wimbledon-dark);
-  margin-top: 0.2em;
-  margin-bottom: 0.3em;
-  font-family: var(--heading-font-family);
-  font-weight: 700;
-}
-
-main .hero .hero-content h1 {
-  font-size: clamp(24px, 4vw, 44px);
-  line-height: 1.15;
-}
-
-/* Hide the site-title h1 ("The Championships, Wimbledon") */
-main .hero .hero-content h1.site-title {
+/* Hide the injected site-title h1 */
+main .hero .hero-content .site-title {
   display: none;
 }
 
+/* Headline */
 main .hero .hero-content h2 {
-  font-size: clamp(18px, 2.5vw, 28px);
-  font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--color-wimbledon-dark);
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(18, 22, 25);
+  letter-spacing: -0.72px;
+  line-height: 1.15;
+  margin: 0 0 12px;
 }
 
-/* Meta/timestamp — muted grey */
+/* Meta text */
 main .hero .hero-meta {
-  font-size: var(--body-font-size-xs);
-  color: #888;
-  margin: 0.4em 0 1em;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(105, 112, 119);
+  letter-spacing: -0.42px;
+  margin: 0;
 }
 
-/* CTA link — plain text link with arrow, no button box */
+/* CTA link — plain underlined text, dark */
 main .hero .hero-content p:last-child a,
 main .hero .hero-content a.button {
-  display: inline-block;
-  margin-top: 0.5em;
-  padding: 0;
+  display: inline;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(18, 22, 25);
+  text-decoration: underline;
   background: none;
   border: none;
-  color: var(--color-wimbledon-green);
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  transition: color 0.2s;
+  padding: 0;
+  margin-top: 16px;
+  letter-spacing: -0.28px;
 }
 
 main .hero .hero-content p:last-child a:hover,
 main .hero .hero-content a.button:hover {
-  color: var(--color-wimbledon-purple);
-  text-decoration: underline;
+  color: #540082;
 }
 
-/* Desktop: 60/40 side-by-side split */
-@media (width >= 768px) {
+/* Mobile: stack vertically */
+@media (max-width: 767px) {
   main .hero > div {
-    grid-template-columns: 60fr 40fr;
-    gap: 40px;
-    align-items: center;
-    min-height: 420px;
+    flex-direction: column;
+    padding: 16px 0 24px;
+    gap: 16px;
   }
 
-  main .hero > div > div:has(picture),
-  main .hero > div > div.hero-image {
-    min-height: 420px;
-  }
-
-  main .hero .hero-content {
-    padding: 24px 0;
-  }
-}
-
-@media (width >= 1100px) {
-  main .hero > div {
-    min-height: 480px;
-    gap: 56px;
-  }
-
-  main .hero > div > div:has(picture),
-  main .hero > div > div.hero-image {
-    min-height: 480px;
+  main .hero > div > div.hero-image,
+  main .hero > div > div.hero-content {
+    flex: unset;
+    width: 100%;
   }
 
   main .hero .hero-content h2 {
-    font-size: clamp(22px, 2.2vw, 32px);
+    font-size: 20px;
+  }
+}
+
+/* Larger desktop — scale up heading */
+@media (min-width: 1024px) {
+  main .hero .hero-content h2 {
+    font-size: 28px;
+    letter-spacing: -0.84px;
+  }
+
+  main .hero > div {
+    gap: 40px;
   }
 }
