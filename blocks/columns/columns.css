@@ -68,11 +68,12 @@ main .columns > div > div:not(.columns-img-col) > p:first-child:not(:has(a)) {
 /* Heading */
 main .columns > div > div:not(.columns-img-col) h2 {
   font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: rgb(18, 22, 25);
-  letter-spacing: -0.96px;
+  letter-spacing: 0.5px;
   line-height: 1.1;
+  text-transform: uppercase;
   margin: 0 0 16px;
 }
 
@@ -84,11 +85,11 @@ main .columns > div > div:not(.columns-img-col) p {
   margin: 0 0 16px;
 }
 
-/* CTA link — blue underlined */
+/* CTA link — blue, no underline, with arrow */
 main .columns > div > div:not(.columns-img-col) a,
 main .columns > div > div:not(.columns-img-col) p a {
   color: rgb(0, 98, 254) !important;
-  text-decoration: underline;
+  text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   background: none;
@@ -99,7 +100,7 @@ main .columns > div > div:not(.columns-img-col) p a {
 
 main .columns > div > div:not(.columns-img-col) a:hover {
   color: rgb(0, 70, 200) !important;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Mobile: stack vertically */
