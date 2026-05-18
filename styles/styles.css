@@ -389,6 +389,8 @@ main .section.dark a:hover {
   font-size: var(--heading-font-size-xxl);
   margin-top: 0;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 /* Ticket options section heading */
