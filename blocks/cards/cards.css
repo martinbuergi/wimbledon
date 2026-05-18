@@ -19,28 +19,46 @@ main .cards > ul > li {
 main .cards .cards-card-image {
   line-height: 0;
   overflow: hidden;
+  display: block;
+  width: 100%;
 }
 
 main .cards .cards-card-image picture {
   display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
-main .cards > ul > li img {
+main .cards .cards-card-image picture img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   display: block;
   border-radius: 0;
   transition: transform 0.3s ease;
 }
 
-main .cards > ul > li:hover img {
+/* also cover img not inside .cards-card-image (fallback) */
+main .cards > ul > li img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+main .cards > ul > li:hover .cards-card-image img {
   transform: scale(1.03);
 }
 
 main .cards .cards-card-body {
-  padding: 12px 0;
+  padding: 10px 0 0;
+}
+
+/* When cards-card-image is a direct child of li (not inside body) */
+main .cards > ul > li > .cards-card-image {
+  margin-bottom: 0;
 }
 
 main .cards .cards-card-body p {
@@ -59,7 +77,7 @@ main .cards .cards-card-body p:first-child:not(:has(a)) {
   color: rgb(84, 0, 130);
   letter-spacing: 0.28px;
   text-transform: none;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 /* Card title link */
@@ -69,7 +87,10 @@ main .cards .cards-card-body p a:any-link {
   font-size: 15px;
   line-height: 1.3;
   text-decoration: none;
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   letter-spacing: -0.3px;
 }
 
@@ -82,7 +103,7 @@ main .cards .cards-card-body p a:hover {
 main .cards .cards-card-body p:last-child:not(:has(a)) {
   font-size: 12px;
   color: rgb(105, 112, 119);
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 /* === Text-only cards (Latest News / Latest Video sections) === */
@@ -123,6 +144,11 @@ main .cards.text-cards .cards-card-body p a:any-link {
   color: rgb(18, 22, 25);
   line-height: 1.35;
   letter-spacing: -0.3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-decoration: none;
 }
 
 main .cards.text-cards .cards-card-body p a:hover {
@@ -137,25 +163,33 @@ main .cards.ticket-cards > ul {
 }
 
 main .cards.ticket-cards > ul > li {
-  position: relative;
   overflow: hidden;
 }
 
+main .cards.ticket-cards .cards-card-image picture {
+  aspect-ratio: 3 / 2;
+}
+
+main .cards.ticket-cards .cards-card-image picture img {
+  border-radius: 0;
+}
+
 main .cards.ticket-cards > ul > li img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   border-radius: 0;
 }
 
 main .cards.ticket-cards .cards-card-body {
-  padding: 10px 0;
+  padding: 8px 0 0;
 }
 
 main .cards.ticket-cards .cards-card-body p a:any-link {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   color: rgb(18, 22, 25);
   text-decoration: none;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.28px;
+  display: block;
 }
 
 main .cards.ticket-cards .cards-card-body p a:hover {
@@ -163,7 +197,7 @@ main .cards.ticket-cards .cards-card-body p a:hover {
 }
 
 main .cards.ticket-cards .cards-card-body p:last-child {
-  font-size: 13px;
+  font-size: 12px;
   color: rgb(105, 112, 119);
 }
 
@@ -178,10 +212,6 @@ main .cards.ticket-cards .cards-card-body p:last-child {
   main .cards.text-cards > ul {
     grid-template-columns: repeat(2, 1fr);
     gap: 0 24px;
-  }
-
-  main .cards.text-cards > ul > li {
-    border-top: 1px solid #e0e0e0;
   }
 
   main .cards.ticket-cards > ul {
@@ -208,14 +238,10 @@ main .cards.ticket-cards .cards-card-body p:last-child {
     padding: 20px 0;
   }
 
-  /* Ticket cards: 4-up on desktop (5 items — 4 visible, 5th wraps or scrolls) */
+  /* Ticket cards: 4-up on desktop */
   main .cards.ticket-cards > ul {
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-  }
-
-  main .cards.ticket-cards > ul > li img {
-    aspect-ratio: 3 / 2;
   }
 }
 

@@ -21,19 +21,17 @@ main .columns > div > div {
   min-width: 0;
 }
 
-/* Image column */
+/* Image column — border-radius 8px, image fills via object-fit */
 main .columns > div > .columns-img-col {
-  position: relative;
   overflow: hidden;
   border-radius: 8px;
+  min-height: 480px;
 }
 
 main .columns > div > .columns-img-col picture {
   display: block;
   width: 100%;
   height: 100%;
-  position: absolute;
-  inset: 0;
 }
 
 main .columns > div > .columns-img-col img {
@@ -41,10 +39,11 @@ main .columns > div > .columns-img-col img {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 8px;
+  border-radius: 0;
+  min-height: 480px;
 }
 
-/* Text column */
+/* Text column — transparent background, generous padding */
 main .columns > div > div:not(.columns-img-col) {
   background: transparent;
   color: rgb(18, 22, 25);
@@ -107,7 +106,7 @@ main .columns > div > div:not(.columns-img-col) a:hover {
 @media (max-width: 767px) {
   .columns-container,
   .columns-wrapper {
-    padding: 0 var(--section-padding, 24px);
+    padding: 0 24px;
   }
 
   main .columns > div {
@@ -118,18 +117,10 @@ main .columns > div > div:not(.columns-img-col) a:hover {
   main .columns > div > .columns-img-col {
     border-radius: 0;
     min-height: 280px;
-    position: relative;
-  }
-
-  main .columns > div > .columns-img-col picture {
-    position: relative;
-    height: 280px;
-    display: block;
   }
 
   main .columns > div > .columns-img-col img {
-    border-radius: 0;
-    height: 280px;
+    min-height: 280px;
   }
 
   main .columns > div > div:not(.columns-img-col) {
