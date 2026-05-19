@@ -44,4 +44,35 @@ export default function decorate(block) {
       p.classList.add('hero-meta');
     }
   });
+
+  // Find the CTA link (e.g. "Read More") — extract href and make the whole hero clickable
+  // Hide the explicit "Read More" paragraph; instead wrap h2 in the link
+  const ctaPara = allParas.find((p) => p.querySelector('a'));
+  if (ctaPara) {
+    const ctaLink = ctaPara.querySelector('a');
+    const href = ctaLink?.href;
+    if (href) {
+      // Wrap the headline (h2) in the link
+      const h2 = textCol.querySelector('h2');
+      if (h2) {
+        const a = document.createElement('a');
+        a.href = href;
+        a.className = 'hero-headline-link';
+        // Move h2 contents into the link
+        while (h2.firstChild) a.appendChild(h2.firstChild);
+        h2.appendChild(a);
+      }
+      // Also wrap the image in the same link for full clickability
+      const imgLink = document.createElement('a');
+      imgLink.href = href;
+      imgLink.className = 'hero-image-link';
+      const picture = imageCol.querySelector('picture');
+      if (picture) {
+        picture.parentNode.insertBefore(imgLink, picture);
+        imgLink.appendChild(picture);
+      }
+    }
+    // Hide the explicit CTA paragraph
+    ctaPara.classList.add('hero-cta-hidden');
+  }
 }
