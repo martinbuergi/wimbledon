@@ -19,6 +19,7 @@ main .columns > div {
 main .columns > div > div {
   flex: 1 1 0;
   min-width: 0;
+  box-sizing: border-box;
 }
 
 /* Image column — border-radius 8px, image fills via object-fit */
