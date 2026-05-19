@@ -4,15 +4,16 @@
 .columns-wrapper {
   max-width: 1312px;
   margin: 0 auto;
-  padding: 0 var(--section-padding, 64px);
+  padding: 0 24px;
 }
 
 main .columns > div {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  gap: 24px;
-  min-height: 640px;
+  gap: 32px;
+  min-height: 720px;
+  padding: 0 0 80px;
 }
 
 /* Each column — equal width */
@@ -26,7 +27,6 @@ main .columns > div > div {
 main .columns > div > .columns-img-col {
   overflow: hidden;
   border-radius: 8px;
-  min-height: 640px;
 }
 
 main .columns > div > .columns-img-col picture {
@@ -41,7 +41,6 @@ main .columns > div > .columns-img-col img {
   object-fit: cover;
   display: block;
   border-radius: 0;
-  min-height: 640px;
 }
 
 /* Text column — transparent background, centered content */
@@ -56,14 +55,14 @@ main .columns > div > div:not(.columns-img-col) {
   text-align: center;
 }
 
-/* Eyebrow — Gotham 12px medium gray uppercase */
+/* Eyebrow — ACaslonPro 14px purple uppercase */
 main .columns > div > div:not(.columns-img-col) > p:first-child:not(:has(a)) {
-  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
   font-style: normal;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgb(105, 112, 119);
-  letter-spacing: -0.36px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #540082;
+  letter-spacing: 0.28px;
   text-transform: uppercase;
   margin: 0 0 12px;
   text-align: center;
@@ -85,27 +84,36 @@ main .columns > div > div:not(.columns-img-col) h2 {
 /* Body text */
 main .columns > div > div:not(.columns-img-col) p {
   font-size: 16px;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
   color: rgb(18, 22, 25);
-  line-height: 1.5;
+  line-height: 24px;
+  letter-spacing: -0.48px;
   margin: 0 0 16px;
   text-align: center;
 }
 
-/* CTA link — blue, no underline */
+/* CTA link — Wimbledon green, Gotham 500, with arrow */
 main .columns > div > div:not(.columns-img-col) a,
 main .columns > div > div:not(.columns-img-col) p a {
-  color: rgb(0, 98, 254) !important;
+  color: #006633 !important;
   text-decoration: none;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: -0.48px;
   background: none;
   border: none;
   padding: 0;
   display: inline;
 }
 
+main .columns > div > div:not(.columns-img-col) a::after {
+  content: " →";
+  font-size: 14px;
+}
+
 main .columns > div > div:not(.columns-img-col) a:hover {
-  color: rgb(0, 70, 200) !important;
+  color: #004d26 !important;
   text-decoration: none;
 }
 
@@ -124,10 +132,12 @@ main .columns > div > div:not(.columns-img-col) a:hover {
   main .columns > div > .columns-img-col {
     border-radius: 0;
     min-height: 280px;
+    aspect-ratio: 16 / 9;
   }
 
   main .columns > div > .columns-img-col img {
     min-height: 280px;
+    height: 100%;
   }
 
   main .columns > div > div:not(.columns-img-col) {

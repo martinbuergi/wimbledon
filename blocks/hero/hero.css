@@ -3,9 +3,9 @@
 /* Section wrapper — constrained width, NOT full bleed */
 .hero-container,
 .hero-wrapper {
-  max-width: var(--section-max-width, 1200px);
+  max-width: 1312px;
   margin: 0 auto;
-  padding: 0 var(--section-padding, 24px) !important;
+  padding: 0 64px !important;
 }
 
 /* Main hero row */
@@ -13,8 +13,8 @@ main .hero > div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 24px;
-  padding: 32px 0 40px;
+  gap: 40px;
+  padding: 64px 0 40px;
   min-height: unset;
 }
 
@@ -55,15 +55,15 @@ main .hero > div > div.hero-content {
   gap: 0;
 }
 
-/* Eyebrow/category label — Gotham normal uppercase, purple */
+/* Eyebrow/category label — ACaslonPro 14px uppercase, purple */
 main .hero .hero-eyebrow {
   display: block;
-  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
   font-style: normal;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   color: #540082;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.28px;
   text-transform: uppercase;
   margin: 0 0 8px;
 }
@@ -80,8 +80,8 @@ main .hero .hero-content h2 {
   font-weight: 700;
   color: rgb(18, 22, 25);
   letter-spacing: -0.72px;
-  line-height: 1.15;
-  margin: 0 0 12px;
+  line-height: 0.95;
+  margin: 0 0 16px;
 }
 
 /* Meta text */
