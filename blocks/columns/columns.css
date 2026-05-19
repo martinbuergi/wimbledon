@@ -12,7 +12,7 @@ main .columns > div {
   flex-direction: row;
   align-items: stretch;
   gap: 24px;
-  min-height: 480px;
+  min-height: 640px;
 }
 
 /* Each column — equal width */
@@ -25,7 +25,7 @@ main .columns > div > div {
 main .columns > div > .columns-img-col {
   overflow: hidden;
   border-radius: 8px;
-  min-height: 480px;
+  min-height: 640px;
 }
 
 main .columns > div > .columns-img-col picture {
@@ -40,10 +40,10 @@ main .columns > div > .columns-img-col img {
   object-fit: cover;
   display: block;
   border-radius: 0;
-  min-height: 480px;
+  min-height: 640px;
 }
 
-/* Text column — transparent background, generous padding */
+/* Text column — transparent background, centered content */
 main .columns > div > div:not(.columns-img-col) {
   background: transparent;
   color: rgb(18, 22, 25);
@@ -51,47 +51,52 @@ main .columns > div > div:not(.columns-img-col) {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Eyebrow — Caslon normal uppercase, purple */
+/* Eyebrow — Gotham 12px medium gray uppercase */
 main .columns > div > div:not(.columns-img-col) > p:first-child:not(:has(a)) {
-  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
   font-style: normal;
-  font-size: 11px;
-  font-weight: 400;
-  color: rgb(84, 0, 130);
-  letter-spacing: 1.5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(105, 112, 119);
+  letter-spacing: -0.36px;
   text-transform: uppercase;
   margin: 0 0 12px;
+  text-align: center;
 }
 
 /* Heading */
 main .columns > div > div:not(.columns-img-col) h2 {
   font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   color: rgb(18, 22, 25);
-  letter-spacing: 0.5px;
-  line-height: 1.1;
+  letter-spacing: -0.96px;
+  line-height: 0.95;
   text-transform: uppercase;
   margin: 0 0 16px;
+  text-align: center;
 }
 
 /* Body text */
 main .columns > div > div:not(.columns-img-col) p {
   font-size: 16px;
-  color: rgb(23, 23, 23);
+  color: rgb(18, 22, 25);
   line-height: 1.5;
   margin: 0 0 16px;
+  text-align: center;
 }
 
-/* CTA link — blue, no underline, with arrow */
+/* CTA link — blue, no underline */
 main .columns > div > div:not(.columns-img-col) a,
 main .columns > div > div:not(.columns-img-col) p a {
   color: rgb(0, 98, 254) !important;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   background: none;
   border: none;
   padding: 0;
@@ -126,5 +131,13 @@ main .columns > div > div:not(.columns-img-col) a:hover {
 
   main .columns > div > div:not(.columns-img-col) {
     padding: 24px 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  main .columns > div > div:not(.columns-img-col) h2,
+  main .columns > div > div:not(.columns-img-col) p,
+  main .columns > div > div:not(.columns-img-col) > p:first-child:not(:has(a)) {
+    text-align: left;
   }
 }

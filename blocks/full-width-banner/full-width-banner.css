@@ -57,16 +57,20 @@ main .full-width-banner .fwb-card {
   width: calc(100% - 48px);
   margin: 80px 24px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Eyebrow — Caslon normal uppercase purple */
+/* Eyebrow — ACaslonPro 14px uppercase purple */
 main .full-width-banner .fwb-eyebrow {
   font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
   font-style: normal;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 400;
   color: rgb(84, 0, 130);
-  letter-spacing: 1.5px;
+  letter-spacing: 0.28px;
   text-transform: uppercase;
   margin: 0 0 8px;
 }
@@ -81,6 +85,7 @@ main .full-width-banner .fwb-card h2 {
   letter-spacing: -0.96px;
   line-height: 1.1;
   margin: 0 0 16px;
+  text-align: center;
 }
 
 /* Description */
@@ -89,6 +94,7 @@ main .full-width-banner .fwb-card p:not(.fwb-eyebrow):not(.fwb-cta) {
   color: rgb(18, 22, 25);
   line-height: 1.5;
   margin: 0 0 16px;
+  text-align: center;
 }
 
 /* CTA — blue link with arrow */
