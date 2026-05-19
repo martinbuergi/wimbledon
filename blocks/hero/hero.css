@@ -1,11 +1,15 @@
 /* Hero block — Wimbledon editorial style */
 
-/* Section wrapper — constrained width, NOT full bleed */
-.hero-container,
+/* Wrapper div — constrained width, centered */
 .hero-wrapper {
   max-width: 1312px;
   margin: 0 auto;
-  padding: 0 64px !important;
+  padding: 0 !important;
+}
+
+/* Section — full viewport width */
+.hero-container {
+  padding: 0 !important;
 }
 
 /* Main hero row */

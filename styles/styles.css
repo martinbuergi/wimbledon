@@ -301,9 +301,9 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: 1312px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0;
 }
 
 /* Sections that contain only default text content (no blocks) get padding */
@@ -317,7 +317,7 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 32px;
+    padding: 0;
   }
 
   main > .section > .default-content-wrapper {
@@ -399,27 +399,33 @@ main .section > div > h2:only-child {
   margin-bottom: 1.5rem;
 }
 
-/* Latest News/Video sections - padding around content */
-main .section.cards-container > div {
-  padding-top: 32px;
-  padding-bottom: 48px;
+/* Latest News/Video sections - tight padding */
+main .section.cards-container > .default-content-wrapper {
+  padding: 0 0 0;
 }
 
-/* Ticket section has its own heading before the cards block */
-main .section.cards-container > div > h2 {
-  font-size: var(--heading-font-size-m);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+/* Latest News/Video heading ("Latest News →" style) */
+main .section.cards-container > .default-content-wrapper > h2 {
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.42px;
+  text-transform: none;
   color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 /* "Latest News →" and "Latest Video →" heading links */
-main .section.cards-container > div > h2 a:any-link {
+main .section.cards-container > .default-content-wrapper > h2 a:any-link {
   color: var(--text-color);
   text-decoration: none;
 }
 
-main .section.cards-container > div > h2 a:hover {
+main .section.cards-container > .default-content-wrapper > h2 a:hover {
   color: var(--color-wimbledon-green);
 }
 
@@ -427,7 +433,14 @@ main .section.cards-container > div > h2 a:hover {
 main > .section:has(> .default-content-wrapper > h2#latest) {
   background-color: white !important;
   color: var(--text-color) !important;
-  padding: 64px 0 40px;
+  padding: 0;
+}
+
+main > .section:has(> .default-content-wrapper > h2#latest) .default-content-wrapper {
+  padding: 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 main > .section:has(> .default-content-wrapper > h2#latest) h2,
@@ -436,19 +449,22 @@ main > .section:has(> .default-content-wrapper > h2#latest) p {
 }
 
 main > .section:has(> .default-content-wrapper > h2#latest) p {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: "ACaslonPro", "Adobe Caslon Pro", Caslon, Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   color: rgb(84, 0, 130) !important;
   opacity: 1;
-  margin-bottom: 0.3em;
+  margin: 0;
 }
 
 main > .section:has(> .default-content-wrapper > h2#latest) h2 {
   font-size: 40px;
   font-weight: 700;
-  margin-top: 0;
+  margin: 0;
   letter-spacing: -1.2px;
   text-transform: uppercase;
+  line-height: 1;
+  color: rgb(18, 22, 25) !important;
 }
