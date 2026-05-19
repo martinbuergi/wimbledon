@@ -168,7 +168,7 @@ main .cards.ticket-cards > ul > li {
 }
 
 main .cards.ticket-cards .cards-card-image picture {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 3 / 4;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -178,7 +178,7 @@ main .cards.ticket-cards .cards-card-image picture img {
 }
 
 main .cards.ticket-cards > ul > li img {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 3 / 4;
   border-radius: 0;
 }
 
@@ -261,6 +261,9 @@ main .cards.ticket-cards .cards-card-body p:last-child {
 main .section.cards-container:has(.ticket-cards) {
   position: relative;
   padding-left: 80px;
+  background-color: #fff;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 /* Rotated "Ticket Options" label container */
@@ -281,9 +284,9 @@ main .section.cards-container:has(.ticket-cards) .default-content-wrapper h2 {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
   text-transform: uppercase;
   color: rgb(18, 22, 25);
   white-space: nowrap;
@@ -293,10 +296,12 @@ main .section.cards-container:has(.ticket-cards) .default-content-wrapper h2 {
 /* Diamond decorators */
 main .section.cards-container:has(.ticket-cards) .default-content-wrapper h2::before,
 main .section.cards-container:has(.ticket-cards) .default-content-wrapper h2::after {
-  content: 'Ç';
+  content: '\25C7';
   display: block;
-  font-size: 8px;
+  font-size: 14px;
   writing-mode: horizontal-tb;
-  transform: rotate(180deg);
+  transform: none;
   text-align: center;
+  line-height: 1;
+  margin: 6px 0;
 }
