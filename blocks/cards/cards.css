@@ -156,30 +156,58 @@ main .cards.text-cards .cards-card-body p a:hover {
   color: var(--color-wimbledon-green);
 }
 
-/* === Ticket option cards === */
+/* === Ticket option cards — horizontal scroll carousel === */
 main .cards.ticket-cards > ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 12px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(180, 180, 180) transparent;
+  -webkit-overflow-scrolling: touch;
+  /* Ensure the list extends beyond the section right edge */
+  margin-right: -24px;
+  padding-right: 24px;
+}
+
+main .cards.ticket-cards > ul::-webkit-scrollbar {
+  height: 4px;
+}
+
+main .cards.ticket-cards > ul::-webkit-scrollbar-thumb {
+  background-color: rgb(180, 180, 180);
+  border-radius: 2px;
 }
 
 main .cards.ticket-cards > ul > li {
-  overflow: hidden;
+  flex: 0 0 192px;
+  min-width: 192px;
+  overflow: visible;
+  list-style: none;
+}
+
+main .cards.ticket-cards .cards-card-image {
+  display: block;
+  width: 100%;
 }
 
 main .cards.ticket-cards .cards-card-image picture {
+  display: block;
+  width: 100%;
   aspect-ratio: 3 / 4;
   border-radius: 8px;
   overflow: hidden;
 }
 
 main .cards.ticket-cards .cards-card-image picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 0;
-}
-
-main .cards.ticket-cards > ul > li img {
-  aspect-ratio: 3 / 4;
-  border-radius: 0;
+  display: block;
 }
 
 main .cards.ticket-cards .cards-card-body {
@@ -217,9 +245,9 @@ main .cards.ticket-cards .cards-card-body p:last-child {
     gap: 0 24px;
   }
 
-  main .cards.ticket-cards > ul {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+  main .cards.ticket-cards > ul > li {
+    flex: 0 0 240px;
+    min-width: 240px;
   }
 }
 
@@ -241,17 +269,24 @@ main .cards.ticket-cards .cards-card-body p:last-child {
     padding: 20px 0;
   }
 
-  /* Ticket cards: 4-up on desktop */
+  /* Ticket cards: fixed-width horizontal scroll on desktop */
+  main .cards.ticket-cards > ul > li {
+    flex: 0 0 256px;
+    min-width: 256px;
+  }
+
   main .cards.ticket-cards > ul {
-    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
+    margin-right: -40px;
+    padding-right: 40px;
   }
 }
 
 /* === Wide desktop === */
 @media (width >= 1200px) {
-  main .cards.ticket-cards > ul {
-    grid-template-columns: repeat(5, 1fr);
+  main .cards.ticket-cards > ul > li {
+    flex: 0 0 280px;
+    min-width: 280px;
   }
 }
 
@@ -264,6 +299,7 @@ main .section.cards-container:has(.ticket-cards) {
   background-color: #fff;
   padding-top: 48px;
   padding-bottom: 48px;
+  overflow: hidden;
 }
 
 /* Rotated "Ticket Options" label container */
@@ -284,7 +320,8 @@ main .section.cards-container:has(.ticket-cards) .default-content-wrapper h2 {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
-  font-size: 14px;
+  font-family: "Gotham", "Gotham SSm A", "Gotham SSm B", -apple-system, system-ui, Arial, sans-serif;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.6px;
   text-transform: uppercase;
